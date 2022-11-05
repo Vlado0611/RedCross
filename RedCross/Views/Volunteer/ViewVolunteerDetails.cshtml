@@ -1,0 +1,80 @@
+﻿@model RedCross.Repository.Models.DB.VolunteerModel
+
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div>
+    <h1 class="text-center m-3 fw-bold">@Model.Name's Details</h1>
+    <table class="table table-striped table-bordered shadow fs-3">
+        <tr class="fs-3">
+            <td>Name</td>
+            <td>@Model.Name</td>
+        </tr>
+        <tr>
+            <td>Surname</td>
+            <td>@Model.Surname</td>
+        </tr>
+        <tr>
+            <td>CUID</td>
+            <td>@Model.CUID</td>
+        </tr>
+        <tr>
+            <td>Began working on</td>
+            <td>@Convert.ToDateTime(Model.AdmissionDate).ToString("dd/MM/yyyy")</td>
+        </tr>
+        <tr>
+            <td>City</td>
+            <td>@Model.City</td>
+        </tr>
+        <tr>
+            <td>Number of Actions</td>
+            <td>@Model.ActionNo</td>
+        </tr>
+        @if (Model.ActionNo == 0)
+        {
+            <td>Last Action</td>
+            <td>Didn't participate in an Action yet</td>
+        }
+        else
+        {
+            <tr>
+                <td>Last Action</td>
+                <td>@Convert.ToDateTime(Model.LastAction).ToString("dd/MM/yyyy")</td>
+            </tr>
+        }
+        <tr>
+            <td>Status</td>
+            <td>@Model.Status</td>
+        </tr>
+    </table>
+
+        <div class="mt-5">
+            <h1 class="fw-bold m-3">
+                Actions @Model.Name participated in
+            </h1>
+            <div class="container">
+                <table class="table table-striped table-bordered shadow fs-3">
+                    <tr>
+                        <th>Beneficiary Name</th>
+                        <th>Beneficiary Surname</th>
+                        <th>Action Date</th>
+                        <th>Title</th>
+                    </tr>
+
+                    @foreach (var item in ViewBag.Actions)
+                    {
+                        <tr>
+                            <td>@item.BeneficiaryName</td>
+                            <td>@item.BeneficiarySurname</td>
+                            <td>@Convert.ToDateTime(item.ActionDate).ToString("dd/MM/yyyy")</td>
+                            <td>@item.Title</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+
+
+
+</div>

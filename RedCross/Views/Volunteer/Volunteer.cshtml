@@ -1,0 +1,65 @@
+﻿@model RedCross.Repository.Models.DB.VolunteerModel
+
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div>
+    <h1 class="text-center m-3 fw-bold">@ViewBag.Heading</h1>
+    @using (Html.BeginForm("Store", "Volunteer", FormMethod.Post))
+    {
+
+        if (@Model != null)
+        {
+            @Html.HiddenFor(m => m.VolunteerID)
+        }
+
+        <div class="form-group m-3">
+            <label>Name</label>
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group m-3">
+            <label>Surname</label>
+            @Html.TextBoxFor(m => m.Surname, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group m-3">
+            <label>CUID</label>
+            @Html.TextBoxFor(m => m.CUID, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group m-3">
+            <label>Date of Admission</label>
+            @Html.TextBoxFor(m => m.AdmissionDate, "{0:d MMM yyyy}", new { type = "date" , @class = "form-control" })
+        </div>
+
+        <div class="form-group m-3">
+            <label>City</label>
+            @Html.DropDownListFor(m => m.City, new SelectList(ViewBag.Cities, "CityName", "CityName"),
+                                                    new { @class = "form-control" })
+        </div>
+
+        <div class="form-group m-3">
+            <label>Number of Actions</label>
+            @Html.TextBoxFor(m => m.ActionNo, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group m-3">
+            <label>Last Action</label>
+            @Html.TextBoxFor(m => m.LastAction, "{0:d MMM yyyy}", new { type = "date", @class = "form-control" })
+        </div>
+
+        <div class="form-group m-3">
+            <label>Status</label>
+            @Html.DropDownListFor(m => m.Status, new SelectList(ViewBag.Statuses, "StatusName", "StatusName"),
+                                                    new { @class = "form-control" })
+        </div>
+
+        <div class="text-center m-3">
+            <button type="submit" class="btn btn-primary btn-lg">
+                Save
+            </button>
+        </div>
+    }
+</div>

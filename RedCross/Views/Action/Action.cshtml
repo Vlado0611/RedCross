@@ -1,0 +1,50 @@
+﻿@model RedCross.Repository.Models.DB.ActionModel
+
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div>
+    <h1 class="text-center fw-bold m-3">@ViewBag.Heading</h1>
+    @using (Html.BeginForm("Store", "Action", FormMethod.Post))
+    {
+
+        if (@Model != null)
+        {
+            @Html.HiddenFor(m => m.ActionID)
+        }
+
+        <div class="form-group m-3">
+            <label>Beneficiary Name</label>
+            @Html.DropDownListFor(m => m.BeneficiaryID, new SelectList(ViewBag.Beneficiaries, "BeneficiaryID", "FullName"),
+                                                    new { @class = "form-control" })
+        </div>
+
+        <div class="form-group m-3">
+            <label>Volunteer Name</label>
+            @Html.DropDownListFor(m => m.VolunteerID, new SelectList(ViewBag.Volunteers, "VolunteerID", "FullName"),
+                                                    new { @class = "form-control" })
+        </div>
+
+        <div class="form-group m-3">
+            <label>Date</label>
+            @Html.TextBoxFor(m => m.ActionDate, new { type = "date", @class = "form-control" })
+        </div>
+
+        <div class="form-group m-3">
+            <label>Title</label>
+            @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group m-3">
+            <label>Description</label>
+            @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+        </div>
+        <div class="text-center m-3">
+            <button type="submit" class="btn btn-primary btn-lg">
+                Save
+            </button>
+        </div>
+    }
+
+</div>

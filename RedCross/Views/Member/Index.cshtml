@@ -1,0 +1,54 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+
+        <div class="container">
+            <table class="table table-striped">
+                <tr>
+                    <th>MemberID</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>CUID</th>
+                    <th>Admission Date</th>
+                    <th>City</th>
+                    <th>Edit</th>
+                    <th>Details</th>
+                    <th>Delete</th>
+                </tr>
+                @foreach (var item in ViewBag.Members)
+                {
+            <tr>
+                <td>@item.MemberID</td>
+                <td>@item.Name</td>
+                <td>@item.Surname</td>
+                <td>@item.CUID</td>
+                <td>@item.AdmissionDate</td>
+                <td>@item.City</td>
+                <td>
+                    <a href="#" class="btn btn-primary">Edit</a>
+                </td>
+                <td>
+                    <a href="/Member/ViewMemberDetails/@item.MemberID" class="btn btn-success">Details</a>
+                </td>
+                <td>
+                    <button class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+                }
+            </table>
+
+        </div>
+    </div>
+</body>
+</html>

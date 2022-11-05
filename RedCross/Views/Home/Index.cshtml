@@ -1,0 +1,122 @@
+﻿@model RedCross.Repository.Models.DB.HomeModel
+
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="d-flex flex-column">
+    <div>
+        <div class="m-3 col-12 text-center">
+            <h1 class="fw-bold display-4">Red Cross Portal</h1>
+        </div>
+
+        <div class="container-lg">
+            <div class="text-center">
+                <h2>Our Community</h2>
+                <p class="lead text-muted">Find anything you need.</p>
+            </div>
+
+            <div class="row my-5 align-items-center justify-content-center g-2">
+                <div class="col-8 col-lg-4 col-xl-3">
+                    <div class="card border-0">
+                        <div class="card-body text-center py-4">
+                            <h4 class="card-title">Members</h4>
+                            <p class="lead card-subtitle">Employees & Volunteers</p>
+                            <a class="text-decoration-none" href="/Employee/Index">
+                                <p class="display-5 my-4 text-primary fw-bold">@Model.EmployeeNo <span class="display-6">employees</span></p>
+                            </a>
+                            <a class="text-decoration-none" href="/Volunteer/Index">
+                                <p class="display-5 my-4 text-primary fw-bold">@Model.VolunteerNo<span class="display-6"> volunteers</span></p>
+                            </a>
+                            <p class="card-text mx-5 text-muted d-none d-lg-block">
+                                Click to see the details about all of the members of our organisation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-9 col-lg-4">
+                    <div class="card border-primary border-2">
+                        <div class="card-body text-center py-5">
+                            <h4 class="card-title">Actions</h4>
+                            <p class="lead card-subtitle">What we're all about</p>
+                            <a class="text-decoration-none" href="/Action/Index">
+                                <p class="display-4 my-4 text-primary fw-bold">@Model.ActionNo <span class="display-6">actions</span></p>
+                            </a>
+                            <p class="card-text mx-5 text-muted d-none d-lg-block">
+                                Click to see the fruits of all our hard work. Everything from blood donations to house visits and food donations,
+                                we give it our all to help those who need it the most.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-8 col-lg-4 col-xl-3">
+                    <div class="card border-0">
+                        <div class="card-body text-center py-4">
+                            <h4 class="card-title">Beneficiaries</h4>
+                            <p class="lead card-subtitle">All those we help</p>
+                            <a class="text-decoration-none" href="/Beneficiary/Index">
+                                <p class="display-5 my-4 text-primary fw-bold">@Model.BeneficiaryNo <span class="display-6">beneficiaries</span></p>
+                            </a>
+                            <p class="card-text mx-5 text-muted d-none d-lg-block">
+                                Click to see the information on all of those who require our assistance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class=" w-75 h-75 border rounded-1 p-2 align-self-center mb-4">
+        <canvas id="bar-chart">
+
+        </canvas>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-3.6.0.js"></script>
+<script src="~/Scripts/chart.js"></script>
+<script>
+
+    var ctx = $("#bar-chart");
+    var barChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Employees', 'Volunteers', 'Beneficiaries', 'Actions'],
+            datasets: [{
+                data: [@Model.EmployeeNo, @Model.VolunteerNo, @Model.BeneficiaryNo, @Model.ActionNo],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(255, 206, 86, 0.5)',
+                    'rgba(75, 240, 100, 0.5)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            
+            plugins: {
+                legend: {
+                    display: false
+                },
+                title: {
+                    display: true,
+                    text: 'Database entries'
+                }
+            }
+        }
+    });
+
+        
+</script>

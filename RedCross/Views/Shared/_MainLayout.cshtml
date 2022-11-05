@@ -1,0 +1,102 @@
+﻿
+@{ 
+    var controllerName = ViewContext.RouteData.Values["controller"];
+    var actionName = ViewContext.RouteData.Values["action"];
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Red Cross Portal</title>
+    <script src="/Scripts/jquery-3.6.0.min.js"></script>
+    <script src="/Scripts/bootstrap.bundle.min.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    @Styles.Render("~/Content/fontawesome")
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="d-flex flex-column flex-shrink-0 p-3 bg-light col-md-2 lead sticky-top" style="height: 100vh; background-color: #2b2727 !important ">
+                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                    <img src="~/Images/red-cross.png" style="width:20%; display:inline" class="m-2" />
+                    <span class="fs-4 fw-bold" style="color: #cccaca">Red Cross Portal</span>
+                </a>
+                <hr>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li>
+                        <a href="/" style="color: #cccaca" class="nav-link link-dark my-2 @if (controllerName.Equals("Home") && actionName.Equals("Index")) { Write("active"); } fw-bold">
+                            <i class="fa fa-home" aria-hidden="true"></i> Home
+                        </a>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <div class="btn dropdown-toggle my-2" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #cccaca">
+                                <i class="fa fa-users" aria-hidden="true"></i> <span class="lead fw-bold">Members<span>
+                            </div>
+
+                            <div class="dropdown-menu my-2" aria-labelledby="dropdownMenuLink" style="color: #cccaca">
+                                <a class="dropdown-item fw-bold" href="/Employee/Index">Employees</a>
+                                <a class="dropdown-item fw-bold" href="/Volunteer/Index">Volunteers</a>
+                                <a class="dropdown-item fw-bold" href="/Beneficiary/Index">Beneficiaries</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="/Action/Index" style="color: #cccaca"  class="nav-link link-dark my-2 fw-bold @if (controllerName.Equals("Action") && actionName.Equals("Index")) { Write("active"); }">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i> Actions
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Home/Contact"  style="color: #cccaca" class="nav-link link-dark my-2 fw-bold  @if (controllerName.Equals("Home") && actionName.Equals("Contact")) { Write("active"); }">
+                            <i class="fa fa-phone" aria-hidden="true"></i> Contact
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Reports/Index" style="color: #cccaca" class="nav-link link-dark my-2 fw-bold   @if (controllerName.Equals("Reports") && actionName.Equals("Index")) { Write("active"); }">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Reports
+                        </a>
+                    </li>
+                </ul>
+                <hr>
+                <div class="dropdown" id="list-item-logout">
+                    <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                        <strong id="layout-username" style="color: #cccaca"></strong>
+                    </a>
+                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                        <li><a class="dropdown-item" href="/UserManagement/Edit"><i class="fa fa-cog" aria-hidden="true"></i> Profile</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" id="logout-button" href="#">Sign out</a></li>
+                    </ul>
+                </div>
+                <div id="list-item-login">
+                    <a href="/UserManagement/Login" style="color: #cccaca" class="nav-link link-dark">
+                        <strong>Log in</strong>
+                    </a>
+                </div>
+                <div id="list-item-register">
+                    <a href="/UserManagement/Register" style="color: #cccaca" class="nav-link link-dark">
+                        <strong>Register</strong>
+                    </a>
+                </div>
+            </div>
+
+            <main class="col-md-10 ms-sm-auto log-lg-10 px-md-4">
+                @RenderBody()
+
+            </main>
+        </div>
+
+    </div>
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <script src="~/Scripts/popper.js"></script>
+    @*<script src="~/Scripts/bootstrap.js"></script>*@
+    <script src="~/Scripts/custom/Shared/main-layout.js"></script>
+
+    @using System.Web.Optimization
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

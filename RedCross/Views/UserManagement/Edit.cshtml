@@ -1,0 +1,51 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+
+}
+
+<style>
+    .input-field {
+        max-width: 500px;
+    }
+
+    input {
+        width: 100%;
+        margin: 0 auto;
+    }
+</style>
+
+<div class="m-3">
+    <h1 class="text-center text-black fw-bold">Edit Your Profile</h1>
+    <div class="form-group m-3 input-field mx-auto">
+        <label>Username:</label>
+        <input type="text" id="usernameE" class="form-control" />
+    </div>
+
+    <div class="form-group m-3 input-field mx-auto">
+        <label>Password:</label>
+        <input type="password" id="passwordE" class="form-control" />
+    </div>
+
+    <div class="form-group m-3 input-field mx-auto">
+        <label>Email:</label>
+        <input type="email" id="emailE" class="form-control" />
+    </div>
+
+    <div class="form-group m-3 input-field mx-auto">
+        <label>Name:</label>
+        <input type="text" id="nameE" class="form-control" />
+    </div>
+
+    <div class="form-group m-3 input-field mx-auto">
+        <label>Surname:</label>
+        <input type="text" id="surnameE" class="form-control" />
+    </div>
+
+    <div class="form-group m-3 text-center">
+        <button class="btn btn-primary btn-lg" id="btn-save">Save</button>
+    </div>
+
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <script src="~/Scripts/custom/User-management/edit.js"></script>
+</div>

@@ -1,0 +1,42 @@
+﻿@model RedCross.Repository.Models.DB.ActionModel
+
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="m-3 mb-1 text-center">
+    <h1 class="fw-bold display-4">Action details</h1>
+</div>
+<div class="m-3">
+    <div class="border-dark shadow-lg">
+        <table class="table table-bordered table-striped shadow fs-4">
+            <tr>
+                <td>Beneficiary Name</td>
+                <td>@Model.BeneficiaryName</td>
+            </tr>
+            <tr>
+                <td>Beneficiary Surname</td>
+                <td>@Model.BeneficiarySurname</td>
+            </tr>
+            <tr>
+                <td>Volunteer Name</td>
+                <td>@Model.VolunteerName</td>
+            </tr>
+            <tr>
+                <td>Volunteer Surname</td>
+                <td>@Model.VolunteerSurname</td>
+            </tr>
+            <tr>
+                <td>Date</td>
+                <td>@Convert.ToDateTime(Model.ActionDate).ToString("dd/MM/yyyy")</td>
+            </tr>
+        </table>
+    </div>
+    <div class="border-dark rounded-3 shadow-lg mt-5" style="color:white; background-color:#363434">
+        <h1 class="text-center fw-bold m-3">@Model.Title</h1>
+        <div class="fs-4 m-4 p-2">
+            <p class="lead"> @Model.Description</p>
+        </div>
+    </div>
+</div>
+

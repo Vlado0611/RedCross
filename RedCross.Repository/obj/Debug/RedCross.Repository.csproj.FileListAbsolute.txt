@@ -1,0 +1,6 @@
+C:\Users\vlaki\source\repos\RedCross.Repository\bin\Debug\RedCross.Repository.dll
+C:\Users\vlaki\source\repos\RedCross.Repository\bin\Debug\RedCross.Repository.pdb
+C:\Users\vlaki\source\repos\RedCross.Repository\obj\Debug\RedCross.Repository.csproj.CoreCompileInputs.cache
+C:\Users\vlaki\source\repos\RedCross.Repository\obj\Debug\RedCross.Repository.dll
+C:\Users\vlaki\source\repos\RedCross.Repository\obj\Debug\RedCross.Repository.pdb
+C:\Users\vlaki\source\repos\RedCross.Repository\obj\Debug\RedCross.Repository.csproj.AssemblyReference.cache

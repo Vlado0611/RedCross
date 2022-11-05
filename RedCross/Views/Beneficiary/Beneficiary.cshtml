@@ -1,0 +1,49 @@
+﻿@model RedCross.Repository.Models.DB.BeneficiaryModel
+
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div>
+    <h1 class="text-center m-3 fw-bold">@ViewBag.Heading</h1>
+    @using (Html.BeginForm("Store", "Beneficiary", FormMethod.Post))
+    {
+        if (@Model != null)
+        {
+            @Html.HiddenFor(m => m.BeneficiaryID)
+        }
+
+        <div class="form-group m-3">
+            <label>Name</label>
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group m-3">
+            <label>Surname</label>
+            @Html.TextBoxFor(m => m.Surname, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group m-3">
+            <label>CUID</label>
+            @Html.TextBoxFor(m => m.CUID, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group m-3">
+            <label>Priority</label>
+            @Html.TextBoxFor(m => m.Priority, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group m-3">
+            <label>City</label>
+            @Html.DropDownListFor(m => m.City, new SelectList(ViewBag.Cities, "CityName", "CityName"),
+                                                new { @class = "form-control" })
+        </div>
+
+        <div class="text-center m-3">
+            <button type="submit" class="btn btn-primary btn-lg">
+                Save
+            </button>
+        </div>
+    }
+
+</div>

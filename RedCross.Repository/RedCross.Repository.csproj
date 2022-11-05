@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BDA921F1-30B4-4274-A0DB-C1DEECF7BED8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RedCross.Repository</RootNamespace>
+    <AssemblyName>RedCross.Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DBOperations\ActionOperations.cs" />
+    <Compile Include="DBOperations\BeneficiaryOperations.cs" />
+    <Compile Include="DBOperations\CityOperations.cs" />
+    <Compile Include="DBOperations\EmployeeOperations.cs" />
+    <Compile Include="DBOperations\HomeOperations.cs" />
+    <Compile Include="DBOperations\MemberOperations.cs" />
+    <Compile Include="DBOperations\PositionOperations.cs" />
+    <Compile Include="DBOperations\QualificationOperations.cs" />
+    <Compile Include="DBOperations\StatusOperations.cs" />
+    <Compile Include="DBOperations\UserOperations.cs" />
+    <Compile Include="DBOperations\VolunteerOperations.cs" />
+    <Compile Include="Models\DB\ActionModel.cs" />
+    <Compile Include="Models\DB\AlsoActionModel.cs" />
+    <Compile Include="Models\DB\BeneficiaryModel.cs" />
+    <Compile Include="Models\DB\CityModel.cs" />
+    <Compile Include="Models\DB\EmployeeModel.cs" />
+    <Compile Include="Models\DB\HomeModel.cs" />
+    <Compile Include="Models\DB\MemberModel.cs" />
+    <Compile Include="Models\DB\PositionModel.cs" />
+    <Compile Include="Models\DB\QualificationModel.cs" />
+    <Compile Include="Models\DB\StatusModel.cs" />
+    <Compile Include="Models\DB\UserModel.cs" />
+    <Compile Include="Models\DB\VolunteerModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
